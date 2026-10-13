@@ -189,3 +189,40 @@ body{font-family:var(--font-sans);font-size:14px;line-height:1.65;letter-spacing
 .hero-whatsapp{background:color-mix(in oklch,var(--glass) 18%,transparent);backdrop-filter:blur(10px)}
 .hero-photo{object-position:70% 48%}
 @media(max-width:640px){.hero-photo{object-position:64% center}}
+
+/* Warm champagne, scoped: the header bar everywhere, and the Hajj & Umrah pages. */
+:root{
+  --champ-bg: oklch(0.93 0.03 86);
+  --champ-fg: oklch(0.35 0.04 70);
+  --champ-card: oklch(0.975 0.02 88);
+  --champ-soft: oklch(0.93 0.035 85);
+  --champ-ice: oklch(0.88 0.05 80);
+  --champ-ice-clear: oklch(0.97 0.022 88);
+  --champ-glass: oklch(0.985 0.018 88 / 68%);
+  --champ-glass-border: oklch(1 0 0 / 78%);
+  --champ-shadow: 0 8px 30px oklch(0.5 0.06 70 / 10%), inset 0 1px 0 oklch(1 0 0 / 80%);
+  --champ-border: oklch(0.84 0.04 82);
+  --champ-input: oklch(0.82 0.045 80);
+  --champ-muted: oklch(0.52 0.035 75);
+  --champ-accent: oklch(0.88 0.06 84);
+}
+.site-header{background:var(--champ-ice-clear);border-bottom-color:var(--champ-glass-border)}
+.champagne-page{
+  --background: var(--champ-bg);
+  --foreground: var(--champ-fg);
+  --card: var(--champ-card);
+  --soft: var(--champ-soft);
+  --muted: var(--champ-soft);
+  --muted-foreground: var(--champ-muted);
+  --accent: var(--champ-accent);
+  --ice: var(--champ-ice);
+  --ice-clear: var(--champ-ice-clear);
+  --surface-wash: linear-gradient(125deg,var(--champ-ice-clear),var(--champ-ice));
+  --glass: var(--champ-glass);
+  --glass-border: var(--champ-glass-border);
+  --glass-shadow: var(--champ-shadow);
+  --border: var(--champ-border);
+  --input: var(--champ-input);
+  background: var(--champ-bg);
+  color: var(--champ-fg);
+}
