@@ -214,6 +214,7 @@ body{font-family:var(--font-sans);font-size:14px;line-height:1.65;letter-spacing
 .site-header .header-enquire{background:var(--gold);color:var(--deep);border-color:var(--gold)}
 .site-header .header-enquire:hover{background:color-mix(in oklch,var(--gold) 88%,var(--on-dark));color:var(--deep)}
 .site-header .mobile-menu{color:var(--on-dark)}
+.site-header .mobile-menu:hover,.site-header .mobile-menu:focus-visible,.site-header .mobile-menu:focus{background:color-mix(in oklch,var(--on-dark) 15%,transparent);color:var(--on-dark);box-shadow:none}
 .mobile-nav{background:var(--deep)}
 .mobile-nav a{color:color-mix(in oklch,var(--on-dark) 80%,transparent);border-bottom-color:color-mix(in oklch,var(--on-dark) 14%,transparent)}
 .mobile-nav a:hover{color:var(--gold)}
