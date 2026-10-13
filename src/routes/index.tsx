@@ -1,24 +1,34 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from '@tanstack/react-router';
+import { useEffect, useRef, useState } from 'react';
+import { ArrowUpRight, MessageCircle, MapPin, FileCheck, HeartHandshake, Plane, Pause, Play, Check, ChevronDown } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { EnquiryButton, ServiceCard, PackageCard } from '@/components/travel-ui';
+import { pageHead, services, whatsappLink } from '@/lib/travel';
+import makkah from '@/assets/makkah.jpg';
+import madinah from '@/assets/madinah.jpg';
+import tawaf from '@/assets/tawaf.mp4.asset.json';
+import tawafWebm from '@/assets/tawaf.webm.asset.json';
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
-export const Route = createFileRoute("/")({
-  component: Index,
-});
-
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
+export const Route = createFileRoute('/')({ component: Index, head: () => pageHead('Hajj & Umrah Travel from Kano', 'Plan your sacred journey with AVDUL TRAVELS AND TOUR LTD in Kano. Enquire about Hajj, Umrah, visas, flights and accommodation.', '/') });
+const faqs = [
+ ['How do I enquire about a Hajj or Umrah package?', 'Send a booking enquiry or contact us on WhatsApp. Share your preferred journey, travel date and number of travellers so our team can discuss available options.'],
+ ['Where can I find package prices and departure dates?', 'Please contact our team for current packages and prices. Departure dates, duration, accommodation, included and excluded services, and availability will be confirmed before you book.'],
+ ['Can you assist with visas, flights and accommodation?', 'Yes. Our services include visa processing assistance, flight arrangements, hotel and accommodation enquiries, and transportation in Saudi Arabia. Specific arrangements depend on your selected service or package.'],
+ ['Does sending an enquiry confirm my booking?', 'No. An enquiry starts a conversation with our team. Your arrangements, price, availability and booking terms must be confirmed separately before a booking is made.'],
+ ['Where is your office?', 'Our office address is No. 56 Mai Kassu Plaza, Adjacent INEC Office, Hajj Camp Roundabout, Kano State, Nigeria. Contact us for directions before visiting.'],
+];
 function Index() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
+ const video = useRef<HTMLVideoElement>(null); const [moving, setMoving] = useState(false);
+ useEffect(() => { if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) { video.current?.play().then(() => setMoving(true)).catch(() => setMoving(false)); } }, []);
+ function toggleVideo() { if (!video.current) return; if (moving) { video.current.pause(); setMoving(false); } else video.current.play().then(() => setMoving(true)).catch(() => setMoving(false)); }
+ return <main>
+  <section className="home-hero"><img className="hero-photo" src={makkah} alt="Pilgrims surrounding the Kaaba at Masjid al-Haram in Makkah" width={1920} height={1088} fetchPriority="high"/><video className={`hero-video ${moving ? 'is-playing' : ''}`} ref={video} muted loop playsInline preload="none" aria-label="Pilgrims performing Tawaf around the Kaaba"><source src={tawafWebm.url} type="video/webm"/><source src={tawaf.url} type="video/mp4"/></video><div className="hero-shade"/><div className="site-container hero-content"><span className="hero-eyebrow"><span/>HAJJ & UMRAH · A JOURNEY OF FAITH</span><h1>Your Sacred Journey<br/>Begins <em>Here.</em></h1><p>AVDUL TRAVELS AND TOUR LTD is here to assist you<br className="desktop-break"/> with your Hajj and Umrah travel arrangements.</p><div className="hero-actions"><Button asChild className="gold-button"><Link to="/hajj-packages">Explore Our Packages <ArrowUpRight/></Link></Button><Button asChild className="hero-whatsapp" variant="outline"><a href={whatsappLink()} target="_blank" rel="noreferrer"><MessageCircle/>Contact Us on WhatsApp</a></Button></div><div className="hero-location"><MapPin size={15}/><span>Based in Kano. Dedicated to your journey.</span></div></div><div className="hero-bottom"><span>MAKKAH AL-MUKARRAMAH · SAUDI ARABIA</span><Button onClick={toggleVideo} variant="ghost" size="icon" aria-label={moving ? 'Pause background video' : 'Play background video'} title={moving ? 'Pause background video' : 'Play background video'}>{moving ? <Pause/> : <Play/>}</Button></div></section>
+  <section className="trust-strip"><div className="site-container"><span><FileCheck/>RC: 8827516</span><span><MapPin/>Kano-based travel agency</span><span><HeartHandshake/>Hajj & Umrah assistance</span><span><Plane/>Travel arrangements</span></div></section>
+  <section className="section intro-section"><div className="site-container intro-grid"><div><span className="eyebrow">WELCOME TO AVDUL TRAVELS</span><h2>A sacred journey.<br/>Thoughtfully arranged.</h2><p>Every journey to the holy cities begins with an intention. At AVDUL TRAVELS AND TOUR LTD, we help you take the next step with care and clarity.</p><p>From Hajj and Umrah arrangements to visas, flights and accommodation, our Kano-based agency is here to assist with the practical details of your journey.</p><Button asChild variant="ghost" className="inline-link"><Link to="/about">Get to know us <ArrowUpRight/></Link></Button></div><div className="intro-image"><img src={madinah} alt="Al-Masjid an-Nabawi and its green dome in Madinah" loading="lazy" width={1440} height={1024}/><div className="image-caption"><span>THE CITY OF PEACE</span><strong>Al-Madinah Al-Munawwarah</strong></div></div></div></section>
+  <section className="section services-preview"><div className="site-container"><div className="section-heading"><div><span className="eyebrow">WITH YOU, EVERY STEP</span><h2>Care for the journey ahead.</h2></div><Button asChild variant="outline"><Link to="/services">All our services <ArrowUpRight/></Link></Button></div><div className="service-grid">{services.slice(0,4).map(item => <ServiceCard key={item.name} item={item}/>)}</div></div></section>
+  <section className="section"><div className="site-container"><div className="section-heading"><div><span className="eyebrow">ANSWER THE CALL</span><h2>Two sacred journeys. One intention.</h2></div><p>Find the right arrangements for your pilgrimage.<br/>Speak with us for current options and prices.</p></div><div className="package-grid"><PackageCard type="Hajj"/><PackageCard type="Umrah"/></div></div></section>
+  <section className="section booking-process geometric"><div className="site-container"><div className="center-heading"><span className="eyebrow">A CLEAR PATH FORWARD</span><h2>Your journey, step by step.</h2></div><div className="process-grid">{[['Share your plans', 'Tell us your preferred service, dates and number of travellers.'], ['Discuss your options', 'Our team will share available arrangements and answer your questions.'], ['Confirm the details', 'Review prices, documents, inclusions and booking terms with us.'], ['Prepare for departure', 'Coordinate your confirmed travel arrangements with our team.']].map(([title,text],i) => <div className="process-step" key={title}><span className="step-number">0{i+1}</span><h3>{title}</h3><p>{text}</p></div>)}</div><EnquiryButton className="process-cta">Start your enquiry <ArrowUpRight/></EnquiryButton></div></section>
+  <section className="section"><div className="site-container strengths-grid"><div><span className="eyebrow">FAITH IN EVERY DETAIL</span><h2>Real people.<br/>A place you can visit.</h2><p>Speak directly with our team about your travel needs, or visit our office in Kano to discuss your plans in person.</p><Button asChild variant="outline"><Link to="/contact">Contact our team <ArrowUpRight/></Link></Button></div><div className="strengths-list">{[['A Kano-based office', 'Find us at No. 56 Mai Kassu Plaza, Hajj Camp Roundabout.'], ['Clear business information', 'Company reference RC: 8827516, with direct phone and email contacts.'], ['Connected travel services', 'Enquire about pilgrimage, visas, domestic and international flights.'], ['A direct conversation', 'Reach our team by phone, WhatsApp or a secure website enquiry.']].map(([t,p]) => <div key={t}><span><Check size={19}/></span><div><h3>{t}</h3><p>{p}</p></div></div>)}</div></div></section>
+  <section className="section faq-section"><div className="site-container faq-grid"><div><span className="eyebrow">A LITTLE MORE CLARITY</span><h2>Questions before<br/>your journey?</h2><p>Let’s help you take the first step.</p><a className="plain-link" href={whatsappLink()} target="_blank" rel="noreferrer">Ask us on WhatsApp <ArrowUpRight size={17}/></a></div><div>{faqs.map(([q,a]) => <details key={q}><summary>{q}<ChevronDown size={17}/></summary><p>{a}</p></details>)}</div></div></section>
+ </main>;
 }

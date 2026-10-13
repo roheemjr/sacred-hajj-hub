@@ -1,0 +1,5 @@
+import { createFileRoute } from '@tanstack/react-router';
+import { PageIntro, ServiceCard } from '@/components/travel-ui';
+import { pageHead, services } from '@/lib/travel';
+export const Route = createFileRoute('/services')({ head: () => pageHead('Our Services', 'Hajj and Umrah assistance, visa processing, flights, hotels, Saudi transport, guidance and domestic and international bookings.', '/services'), component: Services });
+function Services() { return <main><PageIntro eyebrow="OUR TRAVEL SERVICES" title="The details matter. We’re here to help." text="From pilgrimage planning to your next flight, discuss your travel needs with our team."/><section className="section"><div className="site-container service-grid all-services">{services.map(item => <ServiceCard key={item.name} item={item}/>)}</div></section></main>; }
