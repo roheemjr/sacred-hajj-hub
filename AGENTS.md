@@ -13,4 +13,4 @@
 - Centralize confirmed business content, service data, validation and page metadata in the browser-safe travel module so changes remain consistent across pages.
 - Use shared travel presentation components and the root header/footer across all six public content routes to keep navigation and enquiry access consistent.
 - Store enquiries in private Cloud storage via a validated insert-only public server function; never expose enquiry reads to visitors, and review submissions through Lovable Cloud.
-- Keep downloaded motion footage in CDN asset pointers, with an image fallback, playback controls, reduced-motion support and source attribution.
+- Keep downloaded destination photographs in CDN asset pointers with source attribution; the homepage uses a static photograph without playback controls.
