@@ -300,3 +300,30 @@ body{font-family:var(--font-sans);font-size:14px;line-height:1.65;letter-spacing
   radial-gradient(45% 60% at 0% 0%,oklch(0.4 0.07 185 / 60%),transparent 70%),
   radial-gradient(40% 60% at 100% 100%,oklch(0.42 0.06 160 / 50%),transparent 70%),
   linear-gradient(180deg,oklch(0.24 0.04 178),oklch(0.18 0.03 185))}
+
+/* Liquid glass site-wide: remaining homepage bands, inner pages, intros, forms. */
+.page-intro,.champagne-page .page-intro{position:relative;isolation:isolate;overflow:hidden;color:var(--on-dark);border-bottom:1px solid oklch(1 0 0 / 30%);background:
+  radial-gradient(55% 80% at 8% 0%,oklch(0.8 0.13 180 / 70%),transparent 70%),
+  radial-gradient(50% 80% at 95% 100%,oklch(0.82 0.11 210 / 65%),transparent 70%),
+  linear-gradient(135deg,oklch(0.32 0.08 170),oklch(0.52 0.11 185) 55%,oklch(0.3 0.07 168))}
+.page-intro h1,.page-intro p{color:var(--on-dark)!important}
+.page-intro .eyebrow{color:var(--gold)!important}
+.champagne-page{background:transparent}
+.trust-strip,
+main .section:not(.services-preview):not(.sacred-section):not(.booking-process):not(.strengths-section):not(.faq-section){position:relative;isolation:isolate;background:
+  radial-gradient(45% 60% at 0% 0%,oklch(0.88 0.09 185 / 70%),transparent 70%),
+  radial-gradient(45% 60% at 100% 30%,oklch(0.9 0.07 215 / 65%),transparent 70%),
+  radial-gradient(50% 60% at 50% 100%,oklch(0.9 0.09 160 / 55%),transparent 70%),
+  linear-gradient(160deg,oklch(0.97 0.02 195),oklch(0.94 0.035 175))}
+main .section:not(.services-preview):not(.sacred-section):not(.booking-process):not(.strengths-section) :is(.service-card,.package-card,.contact-details,.visit-note,.enquiry-form,.package-checklist,.enquiry-success){
+  background:linear-gradient(145deg,oklch(1 0 0 / 70%),oklch(0.95 0.04 195 / 45%))!important;border:1px solid oklch(1 0 0 / 90%)!important;
+  backdrop-filter:blur(22px) saturate(170%);box-shadow:0 14px 36px oklch(0.45 0.08 190 / 14%),inset 0 1px 0 oklch(1 0 0 / 95%);border-radius:18px}
+main .section:not(.services-preview):not(.sacred-section):not(.booking-process):not(.strengths-section) .service-icon{background:linear-gradient(145deg,oklch(0.85 0.11 190),oklch(0.6 0.13 170));color:var(--on-dark);border:1px solid oklch(1 0 0 / 70%)}
+.enquiry-form input:not([type=checkbox]),.enquiry-form select,.enquiry-form textarea{background:oklch(1 0 0 / 65%)!important;border-color:oklch(0.85 0.05 195)!important;backdrop-filter:blur(10px)}
+.submit-button,.page-intro a,.intro-section .inline-link,
+main .section:not(.services-preview):not(.sacred-section):not(.booking-process):not(.strengths-section):not(.faq-section) :is(.text-enquire,.package-actions a,.package-actions button,.contact-details a.button){
+  background:linear-gradient(135deg,oklch(0.72 0.14 190),oklch(0.52 0.13 170))!important;color:var(--on-dark)!important;
+  border:1px solid oklch(1 0 0 / 65%)!important;border-radius:999px;box-shadow:0 8px 22px oklch(0.45 0.12 185 / 30%),inset 0 1px 0 oklch(1 0 0 / 60%)}
+.intro-section .inline-link,main .text-enquire{padding-inline:16px}
+.intro-image img{border-radius:22px;box-shadow:0 18px 40px oklch(0.4 0.08 185 / 22%)}
+.package-checklist{padding:16px 20px!important}
