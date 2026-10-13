@@ -10,33 +10,102 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as HajjPackagesRouteImport } from './routes/hajj-packages'
+import { Route as ServicesRouteImport } from './routes/services'
+import { Route as UmrahPackagesRouteImport } from './routes/umrah-packages'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HajjPackagesRoute = HajjPackagesRouteImport.update({
+  id: '/hajj-packages',
+  path: '/hajj-packages',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UmrahPackagesRoute = UmrahPackagesRouteImport.update({
+  id: '/umrah-packages',
+  path: '/umrah-packages',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/hajj-packages': typeof HajjPackagesRoute
+  '/services': typeof ServicesRoute
+  '/umrah-packages': typeof UmrahPackagesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/hajj-packages': typeof HajjPackagesRoute
+  '/services': typeof ServicesRoute
+  '/umrah-packages': typeof UmrahPackagesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/hajj-packages': typeof HajjPackagesRoute
+  '/services': typeof ServicesRoute
+  '/umrah-packages': typeof UmrahPackagesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/hajj-packages'
+    | '/services'
+    | '/umrah-packages'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/hajj-packages'
+    | '/services'
+    | '/umrah-packages'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/hajj-packages'
+    | '/services'
+    | '/umrah-packages'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  ContactRoute: typeof ContactRoute
+  HajjPackagesRoute: typeof HajjPackagesRoute
+  ServicesRoute: typeof ServicesRoute
+  UmrahPackagesRoute: typeof UmrahPackagesRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +117,51 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hajj-packages': {
+      id: '/hajj-packages'
+      path: '/hajj-packages'
+      fullPath: '/hajj-packages'
+      preLoaderRoute: typeof HajjPackagesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/umrah-packages': {
+      id: '/umrah-packages'
+      path: '/umrah-packages'
+      fullPath: '/umrah-packages'
+      preLoaderRoute: typeof UmrahPackagesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  ContactRoute: ContactRoute,
+  HajjPackagesRoute: HajjPackagesRoute,
+  ServicesRoute: ServicesRoute,
+  UmrahPackagesRoute: UmrahPackagesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
