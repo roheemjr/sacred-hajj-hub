@@ -182,11 +182,8 @@ body{font-family:var(--font-sans);font-size:14px;line-height:1.65;letter-spacing
 .page-intro p{color:var(--muted-foreground)}
 .page-intro.geometric:before{opacity:.22;background-image:repeating-linear-gradient(45deg,transparent,transparent 40px,var(--glass-border) 40px,var(--glass-border) 41px,transparent 41px,transparent 80px),repeating-linear-gradient(-45deg,transparent,transparent 40px,var(--glass-border) 40px,var(--glass-border) 41px,transparent 41px,transparent 80px)}
 .services-preview,.faq-section,.enquiry-section,.trust-strip{background:var(--surface-wash)}
-.booking-process{background:var(--soft);color:var(--foreground);border-block:1px solid var(--glass-border)}
-.booking-process .eyebrow,.booking-process .step-number{color:var(--primary)}
-.booking-process .step-number{border-color:var(--border)}
-.booking-process .process-step p{color:var(--muted-foreground)}
-.booking-process.geometric:before{opacity:.15}
+.booking-process{border-block:1px solid color-mix(in oklch,var(--deep) 55%,transparent)}
+.booking-process.geometric:before{opacity:.12}
 .booking-dialog{background:var(--ice-clear);border-color:var(--glass-border);box-shadow:var(--glass-shadow)}
 .enquiry-form input:not([type=checkbox]),.enquiry-form select,.enquiry-form textarea{background:var(--glass)}
 .hero-whatsapp{background:color-mix(in oklch,var(--glass) 18%,transparent);backdrop-filter:blur(10px)}

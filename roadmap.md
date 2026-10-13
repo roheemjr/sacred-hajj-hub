@@ -1,4 +1,6 @@
 # Website delivery
+- [x] Move the site background from white/ice to warm champagne; keep frosted glass cards and layout.
+- [x] Restore the emerald green band behind "Your journey, step by step."
 - [x] Replace Kaaba motion with a clean still photograph and remove playback controls.
 - [x] Refresh backgrounds to crisp ice-glass colours, particularly Hajj and Umrah pages; preserve layout.
 - [x] Verify still imagery, refreshed colours and enquiry access.
