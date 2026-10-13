@@ -3,7 +3,7 @@ import { ArrowUpRight, MessageCircle, MapPin, FileCheck, HeartHandshake, Plane, 
 import { Button } from '@/components/ui/button';
 import { EnquiryButton, ServiceCard, PackageCard } from '@/components/travel-ui';
 import { pageHead, services, whatsappLink } from '@/lib/travel';
-import kaaba from '@/assets/kaaba-clean.webp.asset.json';
+import kaaba from '@/assets/makkah.jpg';
 import madinah from '@/assets/madinah.jpg';
 
 export const Route = createFileRoute('/')({ component: Index, head: () => pageHead('Hajj & Umrah Travel from Kano', 'Plan your sacred journey with AVDUL TRAVELS AND TOUR LTD in Kano. Enquire about Hajj, Umrah, visas, flights and accommodation.', '/') });

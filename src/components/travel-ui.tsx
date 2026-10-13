@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { business, services, whatsappLink } from '@/lib/travel';
 import { EnquiryForm } from './enquiry-form';
-import kaaba from '@/assets/kaaba-clean.webp.asset.json';
+import kaaba from '@/assets/makkah.jpg';
 import madinah from '@/assets/madinah.jpg';
 
 const navigation = [{ label: 'Home', to: '/' }, { label: 'About Us', to: '/about' }, { label: 'Hajj Packages', to: '/hajj-packages' }, { label: 'Umrah Packages', to: '/umrah-packages' }, { label: 'Our Services', to: '/services' }, { label: 'Contact Us', to: '/contact' }] as const;
