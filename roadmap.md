@@ -1,5 +1,5 @@
 # Website delivery
-- [ ] Apply the champagne background only to the specific areas the business names; revert the rest.
+- [x] Apply the champagne background only to the header bar and the Hajj & Umrah pages; revert the rest.
 - [x] Move the site background from white/ice to warm champagne; keep frosted glass cards and layout.
 - [x] Restore the emerald green band behind "Your journey, step by step."
 - [x] Replace Kaaba motion with a clean still photograph and remove playback controls.
