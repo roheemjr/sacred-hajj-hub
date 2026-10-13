@@ -1,4 +1,7 @@
 # Website delivery
+- [x] Replace Kaaba motion with a clean still photograph and remove playback controls.
+- [x] Refresh backgrounds to crisp ice-glass colours, particularly Hajj and Umrah pages; preserve layout.
+- [x] Verify still imagery, refreshed colours and enquiry access.
 - [x] Build six core pages and shared green-and-gold presentation.
 - [x] Add pilgrimage imagery and subtle motion background.
 - [x] Connect validated enquiry submissions to private Cloud storage.
