@@ -327,3 +327,19 @@ main .section:not(.services-preview):not(.sacred-section):not(.booking-process):
 .intro-section .inline-link,main .text-enquire{padding-inline:16px}
 .intro-image img{border-radius:22px;box-shadow:0 18px 40px oklch(0.4 0.08 185 / 22%)}
 .package-checklist{padding:16px 20px!important}
+
+/* Welcome line types itself out in a loop */
+.topbar>.site-container>span:first-child{overflow:hidden;white-space:nowrap;max-width:max-content;border-right:1px solid color-mix(in oklch,var(--on-dark) 70%,transparent);animation:topbar-typing 7s steps(43,end) infinite,topbar-caret 1s step-end infinite}
+@keyframes topbar-typing{0%{width:0}55%{width:100%}80%{width:100%}95%,100%{width:0}}
+@keyframes topbar-caret{0%,100%{border-color:transparent}50%{border-color:color-mix(in oklch,var(--on-dark) 70%,transparent)}}
+@media (prefers-reduced-motion:reduce){.topbar>.site-container>span:first-child{animation:none;width:auto;border-right:0}}
+
+/* Vivid water-glass header */
+.site-header{background:linear-gradient(115deg,oklch(0.38 0.09 172),oklch(0.5 0.11 178) 45%,oklch(0.44 0.1 165) 80%,oklch(0.55 0.12 185));border-bottom:1px solid color-mix(in oklch,var(--on-dark) 25%,transparent);box-shadow:0 8px 30px oklch(0.3 0.08 175 / 25%)}
+.site-header .brand{color:var(--on-dark)}
+.site-header .desktop-nav a{color:color-mix(in oklch,var(--on-dark) 88%,transparent)}
+.site-header .desktop-nav a:hover,.site-header .nav-active{color:var(--on-dark)}
+.site-header .mobile-menu{color:var(--on-dark)}
+.site-header .mobile-nav{background:linear-gradient(160deg,oklch(0.4 0.095 172),oklch(0.5 0.11 180))}
+.site-header .mobile-nav a{color:var(--on-dark);border-color:color-mix(in oklch,var(--on-dark) 18%,transparent)}
+.site-header .header-enquire{background:linear-gradient(120deg,oklch(0.82 0.14 195),oklch(0.72 0.13 200));color:oklch(0.25 0.05 190);border:1px solid color-mix(in oklch,var(--on-dark) 55%,transparent);box-shadow:inset 0 1px 0 color-mix(in oklch,var(--on-dark) 60%,transparent),0 4px 14px oklch(0.3 0.08 190 / 30%)}
