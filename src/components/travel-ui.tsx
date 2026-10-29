@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import { Link } from '@tanstack/react-router';
-import { ArrowUpRight, Menu, X, Phone, Mail, MapPin, MessageCircle, Star, Landmark } from 'lucide-react';
+import { ArrowUpRight, Menu, X, Phone, Mail, MapPin, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { business, services, whatsappLink } from '@/lib/travel';
 import { EnquiryForm } from './enquiry-form';
 import kaaba from '@/assets/makkah.jpg';
 import madinah from '@/assets/madinah.jpg';
+import emblem from '@/assets/avdul-emblem.png.asset.json';
 
 const navigation = [{ label: 'Home', to: '/' }, { label: 'About Us', to: '/about' }, { label: 'Hajj Packages', to: '/hajj-packages' }, { label: 'Umrah Packages', to: '/umrah-packages' }, { label: 'Our Services', to: '/services' }, { label: 'Contact Us', to: '/contact' }] as const;
 export function Brand() { return <Link to="/" className="brand" aria-label="AVDUL Travels and Tour Ltd home"><span className="brand-mark"><Landmark size={29}/><Star size={10} className="brand-star"/></span><span><strong>AVDUL</strong><small>TRAVELS & TOUR LTD</small></span></Link>; }
