@@ -343,3 +343,17 @@ main .section:not(.services-preview):not(.sacred-section):not(.booking-process):
 .site-header .mobile-nav{background:linear-gradient(160deg,oklch(0.4 0.095 172),oklch(0.5 0.11 180))}
 .site-header .mobile-nav a{color:var(--on-dark);border-color:color-mix(in oklch,var(--on-dark) 18%,transparent)}
 .site-header .header-enquire{background:linear-gradient(120deg,oklch(0.82 0.14 195),oklch(0.72 0.13 200));color:oklch(0.25 0.05 190);border:1px solid color-mix(in oklch,var(--on-dark) 55%,transparent);box-shadow:inset 0 1px 0 color-mix(in oklch,var(--on-dark) 60%,transparent),0 4px 14px oklch(0.3 0.08 190 / 30%)}
+
+/* Official brand: header emblem badge + flyer gallery */
+.brand-mark{background:oklch(1 0 0);border:1px solid color-mix(in oklch,var(--gold) 65%,oklch(1 0 0));border-radius:50%;width:52px;height:52px;padding:5px;box-shadow:0 3px 10px oklch(0.25 0.06 180 / 25%)}
+.brand-mark img{width:100%;height:100%;object-fit:contain;display:block}
+.gallery-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:28px;align-items:stretch}
+.gallery-card{margin:0;background:oklch(1 0 0 / 80%);border:1px solid oklch(1 0 0 / 90%);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;backdrop-filter:blur(22px) saturate(170%);box-shadow:0 14px 36px oklch(0.45 0.08 190 / 14%),inset 0 1px 0 oklch(1 0 0 / 95%)}
+.gallery-card img{width:100%;height:100%;object-fit:contain;background:oklch(1 0 0);flex:1;min-height:0}
+.flyer-card img{max-height:520px}
+.logo-card img{padding:36px}
+.gallery-card figcaption{padding:14px 20px;font-size:10px;letter-spacing:1.6px;font-weight:600;color:var(--primary);border-top:1px solid var(--border);text-align:center}
+.flyer-image{height:auto;max-height:560px;display:grid;place-items:center;background:oklch(1 0 0 / 70%);border-radius:22px}
+.flyer-image img{object-fit:contain;max-height:560px}
+@media (max-width:900px){.gallery-grid{grid-template-columns:1fr}.flyer-card img{max-height:480px}.logo-card img{padding:24px}}
+@media (max-width:640px){.brand-mark{width:44px;height:44px}.brand strong{font-size:24px}}
