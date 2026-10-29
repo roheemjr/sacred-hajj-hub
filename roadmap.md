@@ -15,4 +15,4 @@
 ## Awaiting business materials
 - Original company flyer and approved destination photographs (illustrative stills used meanwhile).
 - Real package details, prices and dates (contact-for-information messages used meanwhile).
-- Verified exact office map location (directions offered by phone and WhatsApp; no invented map pin).
+- Verified exact office map location (directions offered by phone and WhatsApp; no invented map pin).- [ ] Place official logo in header + favicon, add flyer gallery (homepage + About); balanced on desktop and mobile.
