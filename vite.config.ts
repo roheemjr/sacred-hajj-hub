@@ -12,4 +12,9 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  vite: {
+    // Keep module execution order strict in the server bundle so shared CommonJS helpers
+    // are initialised before chunks that use them (fixes "__commonJSMin is not a function").
+    nitro: { rollupConfig: { output: { strictExecutionOrder: true } } },
+  } as Record<string, unknown>,
 });
