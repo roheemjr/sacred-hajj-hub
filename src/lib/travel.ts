@@ -16,6 +16,15 @@ export const enquirySchema = z.object({
 });
 export type Enquiry = z.infer<typeof enquirySchema>;
 export function whatsappLink(message = 'Assalamu alaikum. I would like to enquire about your Hajj and Umrah travel services.') { return `https://wa.me/${business.whatsapp}?text=${encodeURIComponent(message.slice(0,4000))}`; }
+export const officeLocation = { latitude: 12.0277674, longitude: 8.5231178 };
+export const mapLink = 'https://maps.app.goo.gl/QWF4AdCmgRDCcVaU6';
+export function mapEmbedUrl() {
+  const key = import.meta.env['VITE_LOVABLE_CONNECTOR_GOOGLE_MAPS_BROWSER_KEY'];
+  const { latitude, longitude } = officeLocation;
+  return key
+    ? `https://www.google.com/maps/embed/v1/place?key=${key}&q=${latitude},${longitude}&zoom=16&maptype=roadmap`
+    : `https://www.google.com/maps?q=${latitude},${longitude}&z=16&output=embed`;
+}
 export const services = [
   { name: 'Hajj Packages', icon: Landmark, description: 'Travel arrangements for your journey to fulfil the sacred pillar of Hajj.', service: 'Hajj' },
   { name: 'Umrah Packages', icon: Compass, description: 'Plan your visit to the holy cities of Makkah and Madinah.', service: 'Umrah' },

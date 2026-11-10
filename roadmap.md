@@ -15,9 +15,10 @@
 - [x] Remove the "Our official logo" card from the homepage gallery; the flyer card now sits centred on its own.
 - [x] Correct the office address to No. 57 Mai Kassu Plaza everywhere (footer, FAQ, strengths, About, Contact).
 - [x] Publish confirmed Umrah season packages: Ramadan Economy ₦4,800,000 (premium hotel) and Deluxe ₦5,500,000 (3-star hotel); Maulud / normal Umrah shows contact-for-prices.
+- [x] Remove the "From our desk to your journey" gallery and every flyer placement (homepage and About).
+- [x] Embed the office map on the Contact page from the business's own Google Maps link, with a footer "View on Google Maps" link.
 
 ## Awaiting business materials
 - Real Hajj package details, prices and dates (contact-for-information messages used meanwhile).
 - Maulud / normal Umrah prices.
 - Confirmation of which hotel description belongs to the Economy and Deluxe Ramadan tiers.
-- Verified exact office map location (directions offered by phone and WhatsApp; no invented map pin).
