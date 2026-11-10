@@ -373,3 +373,27 @@ main .section:not(.services-preview):not(.sacred-section):not(.booking-process):
 .map-actions{display:flex;justify-content:center;margin-top:24px}
 .map-link{display:inline-flex;align-items:center;gap:7px;margin-top:12px;font-size:11px;letter-spacing:.6px;color:var(--gold);text-decoration:none}
 @media (max-width:640px){.office-map iframe{height:320px}}
+
+/* Mobile readability + smooth scrolling */
+@media (max-width:767px){
+  *,*::before,*::after{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+  .service-card:hover,.package-card:hover .package-image img{transform:none}
+  html{-webkit-text-size-adjust:100%}
+  body{font-size:16px;line-height:1.7}
+  p{font-size:16px!important;line-height:1.75!important}
+  h2,.section-heading h2,.center-heading h2,.whatsapp-inner h2{font-size:32px!important;line-height:1.15}
+  h3,.service-card h3,.process-step h3,.strengths-list h3{font-size:19px!important}
+  .package-content h3{font-size:27px!important}
+  .hero-content h1{font-size:44px!important}
+  .eyebrow,.hero-eyebrow,.whatsapp-inner .eyebrow{font-size:12px!important;letter-spacing:1.5px}
+  .topbar{font-size:13px}
+  .brand strong{font-size:26px}.brand small{font-size:10px}
+  .hero-location,.trust-strip span,.package-note,.image-caption span,.package-image>span,.hero-bottom{font-size:13px!important}
+  .gold-button,.hero-whatsapp,.text-enquire,.inline-link,.plain-link,.process-cta,.header-enquire,.package-actions>button,.section-heading>a,.section-heading>button,.strengths-grid>div>a,button,.mobile-nav a{font-size:15px!important}
+  .faq-grid summary{font-size:16px!important}
+  input,select,textarea,label{font-size:16px!important}
+  .site-footer,.site-footer a,.footer-bottom,.media-credit,.registration,.season-hotel,.season-note{font-size:14px!important}
+  small{font-size:12px}
+  .service-grid{grid-template-columns:minmax(0,1fr)!important}
+  .season-grid{grid-template-columns:minmax(0,1fr)!important}.season-card,.season-option{min-width:0}
+}
