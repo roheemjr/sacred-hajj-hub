@@ -1,7 +1,7 @@
 import { z } from 'zod';
 import { Landmark, Plane, FileCheck, Hotel, Bus, Compass, Globe, MapPin } from 'lucide-react';
 
-export const business = { name: 'AVDUL TRAVELS AND TOUR LTD', email: 'avdultravelsandtourltd@gmail.com', phone: '09020778435', telephone: '+2349020778435', whatsapp: '2349065862009', address: 'No. 56 Mai Kassu Plaza, Adjacent INEC Office, Hajj Camp Roundabout, Kano State, Nigeria.' };
+export const business = { name: 'AVDUL TRAVELS AND TOUR LTD', email: 'avdultravelsandtourltd@gmail.com', phone: '09020778435', telephone: '+2349020778435', whatsapp: '2349065862009', address: 'No. 57 Mai Kassu Plaza, Adjacent INEC Office, Hajj Camp Roundabout, Kano State, Nigeria.' };
 export const serviceOptions = ['Hajj', 'Umrah', 'Visa assistance', 'Flight arrangements', 'Accommodation', 'Other travel services'] as const;
 export const enquirySchema = z.object({
   full_name: z.string().trim().min(2, 'Please enter your full name.').max(100),
@@ -26,5 +26,13 @@ export const services = [
   { name: 'Professional Guidance', icon: Compass, description: 'Support with planning and preparing for your sacred journey.', service: 'Other travel services' },
   { name: 'Local Flights Within Nigeria', icon: MapPin, description: 'Domestic flight bookings for journeys within Nigeria.', service: 'Flight arrangements' },
   { name: 'International Flight Bookings', icon: Globe, description: 'International flight enquiries for your next destination.', service: 'Flight arrangements' },
+];
+export type UmrahOption = { tier: string; price: string; hotel: string };
+export const umrahSeasons: { season: string; period: string; options: UmrahOption[] }[] = [
+  { season: 'Ramadan Umrah', period: 'Arranged for the Ramadan season.', options: [
+    { tier: 'Economy', price: '₦4,800,000', hotel: 'Premium hotel' },
+    { tier: 'Deluxe', price: '₦5,500,000', hotel: '3-star hotel' },
+  ] },
+  { season: 'Maulud or Normal Umrah', period: 'Tell us your preferred dates and our team will share the available options.', options: [] },
 ];
 export function pageHead(title: string, description: string, path: string) { return { meta: [{ title: `${title} | AVDUL Travels & Tour Ltd` }, { name: 'description', content: description }, { property: 'og:title', content: `${title} | AVDUL Travels & Tour Ltd` }, { property: 'og:description', content: description }, { property: 'og:type', content: 'website' }, { property: 'og:url', content: path }, { name: 'twitter:card', content: 'summary_large_image' }], links: [{ rel: 'canonical', href: path }] }; }
