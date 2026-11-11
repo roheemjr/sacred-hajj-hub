@@ -4,6 +4,7 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useLocation,
   HeadContent,
   Scripts,
   type ErrorComponentProps,
@@ -114,6 +115,24 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const { pathname } = useLocation();
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const observer = new IntersectionObserver(entries => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('reveal-visible');
+          observer.unobserve(entry.target);
+        }
+      }
+    }, { threshold: 0.08 });
+    for (const element of document.querySelectorAll('main .section > .site-container')) {
+      if (element.getBoundingClientRect().top < window.innerHeight) continue;
+      element.classList.add('reveal-ready');
+      observer.observe(element);
+    }
+    return () => observer.disconnect();
+  }, [pathname]);
 
   return (
     <QueryClientProvider client={queryClient}>

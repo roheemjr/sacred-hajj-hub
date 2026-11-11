@@ -36,6 +36,7 @@ export const services = [
   { name: 'Local Flights Within Nigeria', icon: MapPin, description: 'Domestic flight bookings for journeys within Nigeria.', service: 'Flight arrangements' },
   { name: 'International Flight Bookings', icon: Globe, description: 'International flight enquiries for your next destination.', service: 'Flight arrangements' },
 ];
+export const packageInclusions = ['Visa assistance', 'Flights', 'Accommodation', 'Ground transport in Saudi Arabia', 'Guidance'] as const;
 export type UmrahOption = { tier: string; price: string; hotel: string };
 export const umrahSeasons: { season: string; period: string; options: UmrahOption[] }[] = [
   { season: 'Ramadan Umrah', period: 'Arranged for the Ramadan season.', options: [

@@ -1,4 +1,8 @@
 # Website delivery
+- [x] Redesign all six pages with emerald, gold, readable typography and lighter surfaces.
+- [x] Update header, clickable services, package checklists, timeline, contact map placement and footer.
+- [x] Verify desktop/mobile navigation, enquiry flow and page metadata.
+- [ ] Remove the Lovable badge — blocked by the required Pro plan and editor permissions.
 - [x] Recolour the brand header bar to deep emerald with gold accents.
 - [x] Apply the champagne background only to the header bar and the Hajj & Umrah pages; revert the rest.
 - [x] Move the site background from white/ice to warm champagne; keep frosted glass cards and layout.
