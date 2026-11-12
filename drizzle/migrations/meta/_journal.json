@@ -8,6 +8,27 @@
       "when": 1791878858360,
       "tag": "0000_create_private_travel_enquiries",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1794476658284,
+      "tag": "0001_create_admin_enquiries_and_profiles",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1794476798532,
+      "tag": "0002_grant_admin_enquiries_read_access",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1794477197763,
+      "tag": "0003_restrict_role_check_rpc",
+      "breakpoints": true
     }
   ]
 }

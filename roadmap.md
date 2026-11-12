@@ -1,4 +1,10 @@
 # Website delivery
+- [x] Keep the phone number in the sticky header, use a gold journey CTA, strengthen the Makkah image overlay, and retain only two hero actions.
+- [x] Confirm the footer has no illustrative-destination notice.
+- [x] Add a private `enquiries` inbox and copy existing enquiries without deleting the original records.
+- [x] Add password-protected `/admin` access for the business email, owner-only profile and role, and newest-first enquiry list.
+- [ ] Enable app email notifications after the owner configures a verified sender domain.
+- [ ] Owner creates the first admin login at `/admin` and confirms the account through email.
 - [x] Redesign all six pages with emerald, gold, readable typography and lighter surfaces.
 - [x] Update header, clickable services, package checklists, timeline, contact map placement and footer.
 - [x] Verify desktop/mobile navigation, enquiry flow and page metadata.

@@ -12,7 +12,7 @@
 ## Application rules
 - Centralize confirmed business content, service data, validation and page metadata in the browser-safe travel module so changes remain consistent across pages.
 - Use shared travel presentation components and the root header/footer across all six public content routes to keep navigation and enquiry access consistent.
-- Store enquiries in private Cloud storage via a validated insert-only public server function; never expose enquiry reads to visitors, and review submissions through Lovable Cloud.
+- Store enquiries via a validated insert-only public server function; protect all app reads with server-side admin-role checks and private RLS, while preserving review access through Lovable Cloud.
 - Keep downloaded destination photographs in CDN asset pointers with source attribution; the homepage uses a static photograph without playback controls.
 - The server bundle sets nitro rollupConfig output.strictExecutionOrder in vite.config.ts; without it shared CommonJS helpers load out of order and every published page 500s.
 

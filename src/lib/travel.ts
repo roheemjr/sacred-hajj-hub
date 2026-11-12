@@ -2,6 +2,7 @@ import { z } from 'zod';
 import { Landmark, Plane, FileCheck, Hotel, Bus, Compass, Globe, MapPin } from 'lucide-react';
 
 export const business = { name: 'AVDUL TRAVELS AND TOUR LTD', email: 'avdultravelsandtourltd@gmail.com', phone: '09020778435', telephone: '+2349020778435', whatsapp: '2349065862009', address: 'No. 57 Mai Kassu Plaza, Adjacent INEC Office, Hajj Camp Roundabout, Kano State, Nigeria.' };
+export function isAdminEmail(email: string) { return email.trim().toLowerCase() === business.email; }
 export const serviceOptions = ['Hajj', 'Umrah', 'Visa assistance', 'Flight arrangements', 'Accommodation', 'Other travel services'] as const;
 export const enquirySchema = z.object({
   full_name: z.string().trim().min(2, 'Please enter your full name.').max(100),
@@ -15,6 +16,18 @@ export const enquirySchema = z.object({
   website: z.string().max(0),
 });
 export type Enquiry = z.infer<typeof enquirySchema>;
+export function toEnquiryRecord(data: Omit<Enquiry, 'website'>) {
+  return {
+    name: data.full_name,
+    phone: data.phone.replace(/[\s()-]/g, ''),
+    service: data.service,
+    travel_date: data.travel_date || null,
+    travellers: data.travellers,
+    message: data.message,
+    email: data.email || null,
+    consent: data.consent,
+  };
+}
 export function whatsappLink(message = 'Assalamu alaikum. I would like to enquire about your Hajj and Umrah travel services.') { return `https://wa.me/${business.whatsapp}?text=${encodeURIComponent(message.slice(0,4000))}`; }
 export const officeLocation = { latitude: 12.0277674, longitude: 8.5231178 };
 export const mapLink = 'https://maps.app.goo.gl/QWF4AdCmgRDCcVaU6';
