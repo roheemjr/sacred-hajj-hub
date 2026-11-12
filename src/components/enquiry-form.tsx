@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from 'react';
+import { useEffect, useRef, useState, type FormEvent } from 'react';
 import { useServerFn } from '@tanstack/react-start';
 import { CheckCircle2, ArrowUpRight, Loader2, LockKeyhole } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -9,6 +9,10 @@ export function EnquiryForm({ service = 'Umrah' }: { service?: string }) {
   const submit = useServerFn(submitEnquiry);
   const [state, setState] = useState<'idle' | 'sending' | 'success'>('idle');
   const [error, setError] = useState('');
+  const successRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (state === 'success') successRef.current?.scrollIntoView({ block: 'center', behavior: 'smooth' });
+  }, [state]);
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = new FormData(event.currentTarget);
@@ -18,7 +22,7 @@ export function EnquiryForm({ service = 'Umrah' }: { service?: string }) {
     try { const result = await submit({ data: parsed.data }); if (!result.ok) { setError(result.error ?? 'Please try again.'); setState('idle'); return; } setState('success'); }
     catch { setError('Your enquiry was not sent. Please try again or use WhatsApp.'); setState('idle'); }
   }
-  if (state === 'success') return <div className="enquiry-success" role="status"><CheckCircle2 size={44}/><h3>Thank you, we will contact you shortly</h3><p>Your enquiry has been received by AVDUL TRAVELS AND TOUR LTD. You can also reach us directly on WhatsApp.</p><Button asChild><a href={whatsappLink()} target="_blank" rel="noreferrer">Continue on WhatsApp <ArrowUpRight/></a></Button><Button variant="ghost" onClick={() => setState('idle')}>Send another enquiry</Button></div>;
+  if (state === 'success') return <div ref={successRef} className="enquiry-success" role="status" tabIndex={-1}><CheckCircle2 size={44}/><h3>Thank you, we will contact you shortly</h3><p>Your enquiry has been received by AVDUL TRAVELS AND TOUR LTD. You can also reach us directly on WhatsApp.</p><Button asChild><a href={whatsappLink()} target="_blank" rel="noreferrer">Continue on WhatsApp <ArrowUpRight/></a></Button><Button variant="ghost" onClick={() => setState('idle')}>Send another enquiry</Button></div>;
   return <form onSubmit={handleSubmit} className="enquiry-form">
     <div className="form-grid"><label>Full name <span>*</span><input name="full_name" autoComplete="name" placeholder="Your full name" required minLength={2} maxLength={100}/></label><label>Phone number <span>*</span><input name="phone" autoComplete="tel" type="tel" placeholder="e.g. 08012345678" required minLength={7} maxLength={25}/></label><label>Preferred service <span>*</span><select name="service" defaultValue={service}>{serviceOptions.map(s => <option key={s}>{s}</option>)}</select></label><label>Number of travellers <span>*</span><input name="travellers" type="number" defaultValue={1} min={1} max={100} required/></label><label>Preferred travel date <small>(optional)</small><input name="travel_date" type="date"/></label></div>
     <label>Additional message <small>(optional)</small><textarea name="message" placeholder="Tell us about your travel plans…" rows={4} maxLength={2000}/></label>

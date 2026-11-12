@@ -216,6 +216,7 @@ html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}body{font-family:var(-
 .admin-empty{display:grid;justify-items:center;gap:12px;padding:80px 24px;text-align:center;}
 .admin-empty svg{width:40px;height:40px;color:var(--primary);}
 .admin-empty h2{font-size:30px;}
+@media(max-width:1200px){.site-header .header-phone{display:flex;font-size:12px;}.site-header .desktop-nav{gap:10px;}.site-header .header-inner{gap:12px;}.site-header .brand{gap:8px;}.site-header .brand strong{font-size:26px;}.site-header .brand small{font-size:9px;}}
 @media(max-width:1024px){.site-header .header-phone{display:flex;}.site-header .header-inner>.header-enquire{display:none;}.site-header .mobile-nav .header-phone{display:flex;margin:16px 0 0;}.hero-content h1{font-size:72px;}}
 @media(max-width:767px){.header-inner>.header-phone{display:flex!important;margin-left:auto;font-size:13px;}.mobile-menu{margin-left:0;}.site-header .mobile-nav .header-enquire{display:inline-flex;margin-top:20px;justify-self:start;}.hero-content h1{font-size:56px;}.admin-page{padding:40px 16px 72px;}.admin-shell{padding:28px 22px;}.admin-shell h1,.admin-dashboard h1{font-size:36px;}.admin-dashboard-header{align-items:start;flex-direction:column;}.admin-enquiry{padding:20px;}.admin-enquiry-heading{flex-direction:column;gap:8px;}.admin-enquiry-heading time{text-align:left;}.admin-enquiry dl{gap:14px 20px;}}
 @media(max-width:380px){.header-inner>.header-phone{font-size:12px;}.hero-content h1{font-size:48px;}}
