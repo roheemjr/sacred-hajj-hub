@@ -4,6 +4,7 @@ import { CheckCircle2, ArrowUpRight, Loader2, LockKeyhole } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { enquirySchema, serviceOptions, whatsappLink } from '@/lib/travel';
 import { submitEnquiry } from '@/lib/enquiries.functions';
+import { sendWeb3FormsNotification } from '@/lib/web3forms';
 
 export function EnquiryForm({ service = 'Umrah' }: { service?: string }) {
   const submit = useServerFn(submitEnquiry);
@@ -19,7 +20,7 @@ export function EnquiryForm({ service = 'Umrah' }: { service?: string }) {
     const parsed = enquirySchema.safeParse({ full_name: form.get('full_name'), phone: form.get('phone'), email: form.get('email') ?? '', service: form.get('service'), travellers: form.get('travellers'), travel_date: form.get('travel_date'), message: form.get('message'), consent: form.get('consent') === 'on', website: form.get('website') });
     if (!parsed.success) { setError(parsed.error.issues[0]?.message ?? 'Please check your details.'); return; }
     setError(''); setState('sending');
-    try { const result = await submit({ data: parsed.data }); if (!result.ok) { setError(result.error ?? 'Please try again.'); setState('idle'); return; } setState('success'); }
+    try { const result = await submit({ data: parsed.data }); if (!result.ok) { setError(result.error ?? 'Please try again.'); setState('idle'); return; } await sendWeb3FormsNotification(parsed.data, import.meta.env.VITE_WEB3FORMS_ACCESS_KEY ?? ''); setState('success'); }
     catch { setError('Your enquiry was not sent. Please try again or use WhatsApp.'); setState('idle'); }
   }
   if (state === 'success') return <div ref={successRef} className="enquiry-success" role="status" tabIndex={-1}><CheckCircle2 size={44}/><h3>Thank you, we will contact you shortly</h3><p>Your enquiry has been received by AVDUL TRAVELS AND TOUR LTD. You can also reach us directly on WhatsApp.</p><Button asChild><a href={whatsappLink()} target="_blank" rel="noreferrer">Continue on WhatsApp <ArrowUpRight/></a></Button><Button variant="ghost" onClick={() => setState('idle')}>Send another enquiry</Button></div>;

@@ -18,3 +18,4 @@
 
 - Use lightweight opaque surfaces and one shared IntersectionObserver for scroll reveals; avoid panel blur to keep mobile scrolling fast.
 - Use distinct courtyard images for package cards instead of reusing the homepage hero or introduction image.
+- Send enquiry notifications through Web3Forms from the browser only after the validated server-side database insert succeeds; its public access key is meant for client-side use, and email failure must never undo the saved enquiry or block the visitor's success confirmation.
