@@ -1,4 +1,5 @@
 # Website delivery
+- [x] Disable public sign-up and lock public enquiry access to insert-only; retain private admin review access.
 - [x] Keep the phone number in the sticky header, use a gold journey CTA, strengthen the Makkah image overlay, and retain only two hero actions.
 - [x] Confirm the footer has no illustrative-destination notice.
 - [x] Add a private `enquiries` inbox and copy existing enquiries without deleting the original records.

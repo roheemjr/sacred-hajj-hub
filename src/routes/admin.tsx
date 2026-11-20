@@ -29,11 +29,8 @@ function AdminPage() {
   const getEnquiries = useServerFn(listAdminEnquiries);
   const [view, setView] = useState<'checking' | 'signed-out' | 'pending' | 'dashboard' | 'denied'>('checking');
   const [enquiries, setEnquiries] = useState<Enquiry[]>([]);
-  const [mode, setMode] = useState<'sign-in' | 'create-account'>('sign-in');
-  const [name, setName] = useState('');
   const [email, setEmail] = useState(business.email);
   const [password, setPassword] = useState('');
-  const [notice, setNotice] = useState('');
   const [error, setError] = useState('');
   const [busy, setBusy] = useState(false);
 
@@ -68,13 +65,8 @@ function AdminPage() {
   async function handleAuth(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setError('');
-    setNotice('');
     if (!isAdminEmail(email)) {
       setError(`Only ${business.email} can access the admin inbox.`);
-      return;
-    }
-    if (mode === 'create-account' && name.trim().length < 2) {
-      setError('Please enter your name.');
       return;
     }
     if (password.length < 12) {
@@ -84,31 +76,12 @@ function AdminPage() {
 
     setBusy(true);
     try {
-      if (mode === 'create-account') {
-        const { data, error: signUpError } = await supabase.auth.signUp({
-          email: email.trim(),
-          password,
-          options: {
-            emailRedirectTo: `${window.location.origin}/admin`,
-            data: { display_name: name.trim() },
-          },
-        });
-        if (signUpError) {
-          setError(signUpError.message);
-        } else if (data.session) {
-          await refreshEnquiries();
-        } else {
-          setNotice('Check your email to confirm your account, then return here to sign in.');
-          setMode('sign-in');
-        }
-      } else {
-        const { error: signInError } = await supabase.auth.signInWithPassword({
-          email: email.trim(),
-          password,
-        });
-        if (signInError) setError('We could not sign you in. Check your email confirmation and password.');
-        else await refreshEnquiries();
-      }
+      const { error: signInError } = await supabase.auth.signInWithPassword({
+        email: email.trim(),
+        password,
+      });
+      if (signInError) setError('We could not sign you in. Check your email confirmation and password.');
+      else await refreshEnquiries();
     } catch {
       setError('We could not complete that request. Please try again.');
     } finally {
@@ -145,16 +118,13 @@ function AdminPage() {
 
   return <main className="admin-page"><section className="admin-shell">
     <div className="admin-title"><LockKeyhole/><span>PRIVATE ADMIN</span></div>
-    <h1>{mode === 'sign-in' ? 'Enquiry inbox' : 'Create admin account'}</h1>
-    <p>{mode === 'sign-in' ? `Sign in to view enquiries for ${business.name}.` : `Create the admin account for ${business.email}.`}</p>
+    <h1>Enquiry inbox</h1>
+    <p>Sign in to view enquiries for {business.name}.</p>
     <form className="admin-form" onSubmit={handleAuth}>
-      {mode === 'create-account' && <label>Your name<input name="name" autoComplete="name" value={name} onChange={event => setName(event.target.value)} required maxLength={100}/></label>}
       <label>Email address<input name="email" type="email" autoComplete="email" value={email} onChange={event => setEmail(event.target.value)} required maxLength={255}/></label>
-      <label>Password<input name="password" type="password" autoComplete={mode === 'sign-in' ? 'current-password' : 'new-password'} value={password} onChange={event => setPassword(event.target.value)} required minLength={12} maxLength={72}/></label>
-      {notice && <p role="status" className="admin-notice">{notice}</p>}
+      <label>Password<input name="password" type="password" autoComplete="current-password" value={password} onChange={event => setPassword(event.target.value)} required minLength={12} maxLength={72}/></label>
       {error && <p role="alert" className="form-error">{error}</p>}
-      <Button className="admin-submit" type="submit" disabled={busy}>{busy && <Loader2 className="animate-spin"/>}{mode === 'sign-in' ? 'Sign in' : 'Create account'}</Button>
+      <Button className="admin-submit" type="submit" disabled={busy}>{busy && <Loader2 className="animate-spin"/>}Sign in</Button>
     </form>
-    <p className="admin-switch">{mode === 'sign-in' ? 'New to the admin inbox?' : 'Already have an account?'} <button type="button" onClick={() => { setMode(mode === 'sign-in' ? 'create-account' : 'sign-in'); setError(''); setNotice(''); }}>{mode === 'sign-in' ? 'Create account' : 'Sign in'}</button></p>
   </section></main>;
 }
