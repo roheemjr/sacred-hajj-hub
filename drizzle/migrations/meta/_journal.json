@@ -43,6 +43,13 @@
       "when": 1795385214080,
       "tag": "0005_make_role_check_invoker_safe",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1795385391151,
+      "tag": "0006_remove_open_enquiry_table_insert",
+      "breakpoints": true
     }
   ]
 }
