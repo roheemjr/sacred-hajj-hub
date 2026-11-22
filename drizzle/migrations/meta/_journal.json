@@ -36,6 +36,13 @@
       "when": 1795156284614,
       "tag": "0004_lock_down_enquiries_access",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1795385214080,
+      "tag": "0005_make_role_check_invoker_safe",
+      "breakpoints": true
     }
   ]
 }

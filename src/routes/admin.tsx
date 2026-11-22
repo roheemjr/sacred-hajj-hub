@@ -94,7 +94,6 @@ function AdminPage() {
     setEnquiries([]);
     setView('signed-out');
     setPassword('');
-    setNotice('');
   }
 
   if (view === 'checking') {

@@ -5,7 +5,7 @@
 - [x] Add a private `enquiries` inbox and copy existing enquiries without deleting the original records.
 - [x] Add password-protected `/admin` access for the business email, owner-only profile and role, and newest-first enquiry list.
 - [ ] Activate Web3Forms enquiry notifications after the owner provides an access key configured for avdultravelsandtourltd@gmail.com; confirm delivery with a test submission.
-- [ ] Owner creates the first admin login at `/admin` and confirms the account through email.
+- [ ] Securely provision the owner admin account; no account currently exists, and public sign-up is disabled.
 - [x] Redesign all six pages with emerald, gold, readable typography and lighter surfaces.
 - [x] Update header, clickable services, package checklists, timeline, contact map placement and footer.
 - [x] Verify desktop/mobile navigation, enquiry flow and page metadata.

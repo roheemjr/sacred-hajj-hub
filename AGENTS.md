@@ -12,7 +12,7 @@
 ## Application rules
 - Centralize confirmed business content, service data, validation and page metadata in the browser-safe travel module so changes remain consistent across pages.
 - Use shared travel presentation components and the root header/footer across all six public content routes to keep navigation and enquiry access consistent.
-- Store enquiries via a validated insert-only public server function; grant anonymous visitors INSERT only, restrict authenticated reads with admin-role RLS and server checks, and disable public account creation.
+- Store enquiries via a validated insert-only public server function; grant anonymous visitors INSERT only, restrict authenticated reads with admin-role RLS and server checks, keep the role-check function caller-scoped and invoker-safe, and disable public account creation.
 - Keep downloaded destination photographs in CDN asset pointers with source attribution; the homepage uses a static photograph without playback controls.
 - The server bundle sets nitro rollupConfig output.strictExecutionOrder in vite.config.ts; without it shared CommonJS helpers load out of order and every published page 500s.
 
