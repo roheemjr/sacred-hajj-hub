@@ -173,14 +173,7 @@ html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}body{font-family:var(-
 @media(max-width:380px){.hero-content h1{font-size:46px}.hero-content{padding-top:136px}.form-grid{grid-template-columns:1fr}.hero-location{font-size:11px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}.reveal-ready{opacity:1;transform:none}}
 
-/* Sticky emerald navigation and private admin inbox */
-.site-header,.site-header.over-hero{background:var(--deep);color:var(--on-dark);border-color:var(--hero-border);margin-bottom:0;}
-.site-header .brand,.site-header .desktop-nav a,.site-header .header-phone,.site-header .mobile-menu{color:var(--on-dark);}
-.site-header .brand-mark{background:var(--card);}
-.site-header .header-enquire{background:var(--gold);color:var(--deep);}
-.site-header .mobile-nav{background:var(--deep);color:var(--on-dark);border-color:var(--hero-border);}
-.site-header .mobile-nav>a{color:var(--on-dark);border-color:var(--hero-border);}
-.site-header .mobile-nav .header-enquire{color:var(--deep);}
+/* Private admin inbox */
 .hero-content h1{font-size:88px;}
 .hero-shade{background:linear-gradient(90deg,oklch(.11 .035 165 / 94%),oklch(.12 .035 165 / 69%) 62%,oklch(.12 .035 165 / 34%));}
 .admin-page{min-height:65vh;padding:64px 24px 96px;background:var(--background);}
